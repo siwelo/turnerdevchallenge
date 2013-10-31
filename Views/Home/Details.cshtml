@@ -1,7 +1,7 @@
 ﻿@model turnerdevchallenge.Models.Title
 
 @{
-    ViewBag.Title = "Details";
+    ViewBag.Title = "Title Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
@@ -25,6 +25,7 @@
     <div class="display-label">
          Processed DateTime UTC: @Html.DisplayFor(model => model.ProcessedDateTimeUTC)
     </div>
+
 </fieldset>
 <p>
     @Html.ActionLink("Back to search", "Index", "Home")

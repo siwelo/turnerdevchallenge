@@ -31,11 +31,12 @@ namespace turnerdevchallenge.Controllers
         }
 
         //
-        // GET: /Home/Details/5
+        // GET: /Home/Details
 
         public ActionResult Details(int id)
         {
             Title thisTitle = _db.Titles.Where(title => title.TitleId == id).SingleOrDefault();
+            //var participants = from p in _db.Participants where p.TitleParticipants.Join( select p;
             return View(thisTitle);
         }
 
