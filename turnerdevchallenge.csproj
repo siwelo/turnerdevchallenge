@@ -124,13 +124,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
-    <Compile Include="Award.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Genre.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -139,37 +133,10 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>turnerdevDBModel.edmx</DependentUpon>
     </Compile>
-    <Compile Include="OtherName.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Participant.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="StoryLine.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Title.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TitleGenre.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TitleParticipant.cs">
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TitlesModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TitlesModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="TitlesModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>TitlesModel.tt</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\img\Turner_logo.svg.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_0_aaaaaa_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_flat_75_ffffff_40x100.png" />
     <Content Include="Content\themes\base\images\ui-bg_glass_55_fbf9ee_1x400.png" />
@@ -226,7 +193,6 @@
     <Content Include="Content\themes\base\minified\jquery.ui.theme.min.css" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
-    <Content Include="Models\nHibernate\hibernate.cfg.xml" />
     <Content Include="Scripts\jquery-1.7.1-vsdoc.js" />
     <Content Include="Scripts\jquery-1.7.1.js" />
     <Content Include="Scripts\jquery-1.7.1.min.js" />
@@ -243,7 +209,9 @@
     <Content Include="Scripts\knockout-2.1.0.js" />
     <Content Include="Scripts\modernizr-2.5.3.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -266,14 +234,6 @@
       <Generator>EntityModelCodeGenerator</Generator>
       <LastGenOutput>turnerdevDBModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="TitlesModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TitlesModel.Context.cs</LastGenOutput>
-    </None>
-    <None Include="TitlesModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>TitlesModel.cs</LastGenOutput>
-    </None>
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Home\TitleSearch.cshtml" />
   </ItemGroup>
