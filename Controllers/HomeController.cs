@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using turnerdevchallenge.Models;
+using System.Data.Objects;
 
 namespace turnerdevchallenge.Controllers
 {
@@ -18,6 +19,19 @@ namespace turnerdevchallenge.Controllers
         public ActionResult Index()
         {
             return View(_db.Titles.ToList());
+        }
+
+        public ActionResult TitleSearch(FormCollection formVal)
+        {
+            //IQueryable<Models.Title> titleQuery = _db.Titles.Where(exp => exp.TitleName.Contains(formVal["titleSearch"]));
+
+              //var titleQuer = _db.Titles.Where("TitleName LIKE @titleSearch", new ObjectParameter("titleSearch", formVal["titleSearch"]));
+              //var title = from t in _db.Titles where t.TitleName.Contains(formVal["titleSearch"])
+                            //select t;
+            string titleSearch = formVal["titleSearch"];
+            var titleList = from titles in _db.Titles where titles.TitleName.Contains(titleSearch) select titles;
+            //var resultList = titleList.ToList();
+            return View(titleList.ToList());
         }
 
         //

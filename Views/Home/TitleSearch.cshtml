@@ -1,22 +1,12 @@
 ﻿@model IEnumerable<turnerdevchallenge.Models.Title>
 
 @{
-    ViewBag.Title = "Index";
+    ViewBag.Title = "TitleSearchList";
+    Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2>Index</h2>
+<h2>TitleSearchList</h2>
 
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-
-@using (Html.BeginForm("TitleSearch", "Home"))
-{
-<p>
-<label for="titleSearch" style="font-weight: bold;">Please enter title search:</label>@Html.TextBox("titleSearch")
-<input type="submit" value="Search" />
-</p>
-}
 
 <table>
     <tr>
@@ -34,6 +24,9 @@
         </th>
         <th>
             @Html.DisplayNameFor(model => model.ProcessedDateTimeUTC)
+        </th>
+        <th>
+           
         </th>
         <th></th>
     </tr>
@@ -56,9 +49,10 @@
             @Html.DisplayFor(modelItem => item.ProcessedDateTimeUTC)
         </td>
         <td>
-            @Html.ActionLink("Edit", "Edit", new { id=item.TitleId }) |
+            @Html.DisplayFor(modelItem => item.StoryLines)
+        </td>
+        <td>
             @Html.ActionLink("Details", "Details", new { id=item.TitleId }) |
-            @Html.ActionLink("Delete", "Delete", new { id=item.TitleId })
         </td>
     </tr>
 }
