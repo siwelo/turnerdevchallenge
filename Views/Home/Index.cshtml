@@ -2,13 +2,13 @@
     ViewBag.Title = "Index";
 }
 
-<!--<h2>Index</h2>-->
-<p>Welcome to the Turner Broadcasting Movie Title Database</p>
+
+<h3>Welcome to the Turner Broadcasting Movie Title Database</h3>
 
 @using (Html.BeginForm("TitleSearch", "Home"))
 {
 <p>
-<label for="titleSearch" style="font-weight: bold;">Please enter title search:</label>@Html.TextBox("titleSearch")
+<label for="titleSearch">Please enter title search:</label>@Html.TextBox("titleSearch")
 <input type="submit" value="Search" />
 </p>
 }

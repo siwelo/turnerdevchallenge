@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using turnerdevchallenge.Models;
 using System.Data.Objects;
+using System.Data;
 
 namespace turnerdevchallenge.Controllers
 {
@@ -34,7 +35,8 @@ namespace turnerdevchallenge.Controllers
 
         public ActionResult Details(int id)
         {
-            return View();
+            Title thisTitle = _db.Titles.Where(title => title.TitleId == id).SingleOrDefault();
+            return View(thisTitle);
         }
 
     }

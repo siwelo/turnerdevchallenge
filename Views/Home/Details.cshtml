@@ -1,0 +1,31 @@
+﻿@model turnerdevchallenge.Models.Title
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Title Details</h2>
+
+<fieldset>
+    <legend>Title</legend>
+
+    <div class="display-label">
+         Title Name: @Html.DisplayFor(model => model.TitleName)
+    </div>
+
+    <div class="display-label">
+         Title Name (Sortable): @Html.DisplayFor(model => model.TitleNameSortable)
+    </div>
+
+    <div class="display-label">
+         Release Year: @Html.DisplayFor(model => model.ReleaseYear)
+    </div>
+
+    <div class="display-label">
+         Processed DateTime UTC: @Html.DisplayFor(model => model.ProcessedDateTimeUTC)
+    </div>
+</fieldset>
+<p>
+    @Html.ActionLink("Back to search", "Index", "Home")
+</p>
