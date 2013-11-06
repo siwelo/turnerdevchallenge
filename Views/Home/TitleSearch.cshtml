@@ -5,10 +5,15 @@
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
+<script type="text/javascript">
+    
+</script>
+
 <h2>Title Search Results</h2>
 
 
-<table>
+<table id="titleSearch">
+<thead>
     <tr>
         <th>
             Title Name
@@ -18,7 +23,8 @@
         </th>
         <th></th>
     </tr>
-
+</thead>
+<tbody>
 @foreach (var item in Model) {
     <tr>
         <td>
@@ -32,5 +38,16 @@
         </td>
     </tr>
 }
-
+</tbody>
 </table>
+
+@section scripts
+{
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#titleSearch tbody tr:odd").css("background-color", "#E6E6FA");
+            //$('#titleSearch').find('tr:odd').css({ 'background-color': '#ddd' });
+        });
+
+    </script>
+}

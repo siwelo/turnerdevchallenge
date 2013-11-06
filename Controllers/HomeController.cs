@@ -12,7 +12,7 @@ namespace turnerdevchallenge.Controllers
     public class HomeController : Controller
     {
 
-        private TitlesEntities1 _db = new TitlesEntities1(); 
+        private TitlesEntities1 _db = new TitlesEntities1();
 
         //
         // GET: /Home/
@@ -36,8 +36,16 @@ namespace turnerdevchallenge.Controllers
         public ActionResult Details(int id)
         {
             Title thisTitle = _db.Titles.Where(title => title.TitleId == id).SingleOrDefault();
-            //var participants = from p in _db.Participants where p.TitleParticipants.Join( select p;
-            return View(thisTitle);
+            var participants = from c in _db.Participants
+                        join cm in _db.TitleParticipants on c.Id equals cm.ParticipantId
+                        where (cm.TitleId == id && cm.RoleType == "Actor")
+                        select c;
+
+            TitleDetailViewModel tdvm = new TitleDetailViewModel();
+            tdvm.thisTitle = thisTitle;
+            tdvm.storylines = thisTitle.StoryLines.ToList();
+            tdvm.participants = participants.ToList();
+            return View(tdvm);
         }
 
     }

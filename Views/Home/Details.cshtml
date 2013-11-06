@@ -1,31 +1,49 @@
-﻿@model turnerdevchallenge.Models.Title
+﻿@model turnerdevchallenge.Models.TitleDetailViewModel
 
 @{
     ViewBag.Title = "Title Details";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
-
-<h2>Title Details</h2>
-
+<h2>
+    Title Details</h2>
 <fieldset>
-    <legend>Title</legend>
-
+    <legend></legend>
     <div class="display-label">
-         Title Name: @Html.DisplayFor(model => model.TitleName)
+        <strong>Title Name:</strong> @Html.DisplayFor(model => model.thisTitle.TitleName)
+    </div>
+    <div class="display-label">
+        <strong>Title Name (Sortable):</strong> @Html.DisplayFor(model => model.thisTitle.TitleNameSortable)
+    </div>
+    <div class="display-label">
+        <strong>Release Year:</strong> @Html.DisplayFor(model => model.thisTitle.ReleaseYear)
+    </div>
+    <!--
+    <div class="display-label">
+        Processed DateTime UTC: @Html.DisplayFor(model => model.thisTitle.ProcessedDateTimeUTC)
+    </div>
+    -->
+    <div class="display-label">
+        <strong>Storyline:</strong> @Html.DisplayFor(model => model.storylines[0].Description)
+    </div>
+    <div class="display-label">
+        <strong>Awards:</strong>
+        <ul>
+            @foreach (var item in Model.thisTitle.Awards)
+            {       
+                <li>@item.Award1, @item.AwardCompany (@item.AwardYear) (Won: @item.AwardWon)</li>
+            }
+        </ul>
     </div>
 
     <div class="display-label">
-         Title Name (Sortable): @Html.DisplayFor(model => model.TitleNameSortable)
+        <strong>Participants:</strong>
+        <ul>
+            @foreach (var item in Model.participants)
+            {       
+                <li>@item.Name</li>
+            }
+        </ul>
     </div>
-
-    <div class="display-label">
-         Release Year: @Html.DisplayFor(model => model.ReleaseYear)
-    </div>
-
-    <div class="display-label">
-         Processed DateTime UTC: @Html.DisplayFor(model => model.ProcessedDateTimeUTC)
-    </div>
-
 </fieldset>
 <p>
     @Html.ActionLink("Back to search", "Index", "Home")
